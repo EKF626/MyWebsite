@@ -93,6 +93,7 @@ class Point {
     this.pos = createVector(x+random(-initialOffset, initialOffset), y+random(-initialOffset, initialOffset));
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
+    this.color = color(255, 255, 255);
   }
   
   update() {
@@ -105,6 +106,9 @@ class Point {
       const yMove = amt*random(-chaos, chaos);
       this.acc.x += xMove;
       this.acc.y += yMove;
+      this.color = lerpColor(color(255, 130, 50), color(255, 255, 255), d/range);
+    } else {
+      this.color = color(255, 255, 255);
     }
     this.acc.mult(0.05);
     this.vel = p5.Vector.add(this.acc, this.vel);
@@ -113,6 +117,7 @@ class Point {
   }
   
   draw() {
+    fill(this.color);
     circle(this.pos.x, this.pos.y, size);
   }
 }
