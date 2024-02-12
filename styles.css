@@ -17,7 +17,7 @@ body {
     background-color: rgb(0, 0, 35);
 }
 
-nav {
+nav, nav:visited, nav:hover, nav:active {
     position: fixed;
     top: 0;
     left: 0;
@@ -40,12 +40,8 @@ nav ul li {
     margin-right: 20px;
 }
 
-a {
-    text-decoration: none;
-}
-
-a:visited {
-    color: inherit;
+a, a:visited, a:hover {
+    color: currentColor;
     text-decoration: none;
 }
 
@@ -233,3 +229,6 @@ a:visited {
     font-size: 20px;
   }
   
+.white-link {
+
+}
