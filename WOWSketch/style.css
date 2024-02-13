@@ -1,0 +1,26 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+.custom-slider {
+  -webkit-appearance: none;
+  height: 7px;
+  border-radius: 20px;  
+}
+
+.custom-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 25px;
+  background: white;
+}
+
+.custom-slider::-moz-range-thumb {
+  width: 10px;
+  height: 25px;
+  background: white;
+}

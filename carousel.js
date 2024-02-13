@@ -1,3 +1,5 @@
+const interval = 6*1000;
+
 const carousels = document.querySelectorAll('.carousel');
 
 carousels.forEach(carousel => {
@@ -7,6 +9,8 @@ carousels.forEach(carousel => {
     const prevButton = carousel.querySelector('.carousel__button--left');
     const dotsNav = carousel.querySelector('.carousel__nav');
     const dots = Array.from(dotsNav.children);
+    let slideInterval;
+
 
     const slideWidth = slides[0].getBoundingClientRect().width;
     for (let i = 0; i < slides.length; i++) {
@@ -14,16 +18,8 @@ carousels.forEach(carousel => {
     }
 
     nextButton.addEventListener('click', e => {
-        const currentSlide = track.querySelector('.current-slide');
-        let nextSlide = currentSlide.nextElementSibling;
-        const currentDot = dotsNav.querySelector('.current-slide');
-        let nextDot = currentDot.nextElementSibling;
-        if (!nextSlide) {
-            nextSlide = slides[0];
-            nextDot = dots[0];
-        }
-        moveToSlide(track, currentSlide, nextSlide);
-        updateDots(currentDot, nextDot);
+        nextSlide();
+        resetSlideshow();
     })
     
     prevButton.addEventListener('click', e => {
@@ -37,6 +33,7 @@ carousels.forEach(carousel => {
         }
         moveToSlide(track, currentSlide, prevSlide);
         updateDots(currentDot, prevDot);
+        resetSlideshow();
     })
     
     dotsNav.addEventListener('click', e => {
@@ -48,7 +45,32 @@ carousels.forEach(carousel => {
         const targetSlide = slides[targetIndex];
         moveToSlide(track, currentSlide, targetSlide);
         updateDots(currentDot, targetDot);
+        resetSlideshow();
     })
+
+    const resetSlideshow = () => {
+        clearInterval(slideInterval);
+        startSlideshow();
+    }
+    
+    const startSlideshow = () => {
+        slideInterval = setInterval(nextSlide, interval);
+    }
+    
+    const nextSlide = () => {
+        const currentSlide = track.querySelector('.current-slide');
+        let nextSlide = currentSlide.nextElementSibling;
+        const currentDot = dotsNav.querySelector('.current-slide');
+        let nextDot = currentDot.nextElementSibling;
+        if (!nextSlide) {
+            nextSlide = slides[0];
+            nextDot = dots[0];
+        }
+        moveToSlide(track, currentSlide, nextSlide);
+        updateDots(currentDot, nextDot);
+    }
+
+    startSlideshow();
 })
 
 const moveToSlide = (track, currentSlide, targetSlide) => {

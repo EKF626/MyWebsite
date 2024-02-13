@@ -228,7 +228,8 @@ a, a:visited, a:hover {
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
   }
-  
-.white-link {
 
+.iframe {
+    border: none;
+    outline: none;
 }
