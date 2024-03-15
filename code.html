@@ -17,64 +17,117 @@
       <li><a href="art.html">Art</a></li>
       <li><a href="code.html">Code</a></li>
     </ul>
-  </nav>
-  <div class="carousel__and__text" style="margin-top: 120px;">
-    <div style="width: 700px;">
-      <iframe src="https://editor.p5js.org/elijahfrankle626/full/CcwOa0xir" style="width: 660px; height: 700px;"></iframe>
+</nav>
+<div class="carousel__and__text" style="margin-top: 120px;">
+  <div class="carousel">
+    <button class="carousel__button carousel__button--left">
+      <img src="assets/UI/Chevron-Left.svg" alt="left arrow">
+    </button>
+    <div class="carousel__track-container">
+      <ul class="carousel__track">
+        <li class="carousel__slide current-slide">
+          <img src="assets/Vectorscript/Vectorscript Image 1.png" class="carousel__images" alt="_____"
+          max-width="100%" max-height="100%">
+        </li>
+        <li class="carousel__slide">
+          <img src="assets/Vectorscript/Vectorscript Image 2.png" class="carousel__images" alt="_____"
+          max-width="100%" max-height="100%">
+        </li>
+        <li class="carousel__slide">
+          <img src="assets/Vectorscript/Vectorscript Image 3.png" class="carousel__images" alt="_____"
+          max-width="100%" max-height="100%">
+        </li>
+        <li class="carousel__slide">
+          <img src="assets/Vectorscript/Vectorscript Image 4.png" class="carousel__images" alt="_____"
+          max-width="100%" max-height="100%">
+        </li>
+      </ul>
     </div>
-    <div class="info-text">
-      <p class="title"><i class="orange">Data Visualization</i><br>
-      <p class="description">
-        The UCSB Global Media Technologies and Cultures lab does a lot of work in collecting data from various company reports around they world.
-        What they were looking for was a way to make that information digestable to the general public.
-        I developed various interactive data visualizations in javascript that gave both a clear and intuitive sense of the information conveyed.
-        It was also important that these visualizations were generative, adapting dynamically to whatever data is input, making these pieces reusable.
-      </p>
-      <p class="description">
-        This example demonstrates the land ownership of companies under different categories. 
-        The goal here was to make the data, areas in the millions of square feet, more understandable by comparing it to well known sizes.
-      </p>
-    </div>
-  </div>
-  <div class="carousel__and__text" style="margin-top: 120px;">
-    <div class="carousel">
-      <button class="carousel__button carousel__button--left">
-        <img src="assets/UI/Chevron-Left.svg" alt="left arrow">
-      </button>
-      <div class="carousel__track-container">
-        <ul class="carousel__track">
-          <li class="carousel__slide current-slide">
-            <img src="assets/Allolib/Allo 1.png" class="carousel__images" alt="_____"
-            max-width="100%" max-height="100%">
-          </li>
-          <li class="carousel__slide">
-            <img src="assets/Allolib/Allo 2.png" class="carousel__images" alt="_____"
-            max-width="100%" max-height="100%">
-          </li>
-          <li class="carousel__slide">
-            <img src="assets/Allolib/Allo 3.png" class="carousel__images" alt="_____"
-            max-width="100%" max-height="100%">
-          </li>
-        </ul>
-      </div>
-      <button class="carousel__button carousel__button--right">
-        <img src="assets/UI/Chevron-Right.svg" alt="right arrow">
-      </button>
-      <div class="carousel__nav">
-        <button class="carousel__indicator current-slide"></button>
-        <button class="carousel__indicator"></button>
-        <button class="carousel__indicator"></button>
-      </div>
-    </div>
-    <div class="info-text">
-      <p class="title"><i class="orange">Projects in Allolib </i><br>
-      <p class="description" id="full-credits">
-        UCSB is home to the Allosphere, a 30-foot tall sphere with full 360 projection coverage inside of it.
-        I'm in a graduate level class in the Media Arts and Technology program where I am learning to create visuals for the
-        Allosphere through its c++ framework, allolib. It's an exciting mix of object oriented programming, computer graphics, and physics simulation.
-      </p>
+    <button class="carousel__button carousel__button--right">
+      <img src="assets/UI/Chevron-Right.svg" alt="right arrow">
+    </button>
+    <div class="carousel__nav">
+      <button class="carousel__indicator current-slide"></button>
+      <button class="carousel__indicator"></button>
+      <button class="carousel__indicator"></button>
+      <button class="carousel__indicator"></button>
     </div>
   </div>
-  <script src="carousel.js"></script>
+  <div class="info-text">
+    <p class="title"><i class="orange">Custom Vectorworks Plug-In Tools</i><br>
+    <p class="description" id="full-credits">
+      I coded two new tools for Vectorworks called "Select By Something" and "Direct Info". 
+      With the first, you can choose any field, click a fixture, and all fixtures that have the same value in that field as the one clicked will be highlighted. 
+      You can also manually specify a field value to select all fixtures with that value.
+      With the second, you can click a fixture to see a more concise menu than the object info palette while also having a gel color preview.
+    </p>
+    <p class="description" id="full-credits">
+      A study was done on the effectiveness of these tools as a project for the Media Arts and Technology class "Designing Expressive Technologies".
+    </p>
+  </div>
+</div>
+<div class="carousel__and__text" style="margin-top: 120px;">
+  <div style="width: 700px;">
+    <iframe src="https://editor.p5js.org/elijahfrankle626/full/CcwOa0xir" style="width: 660px; height: 700px;"></iframe>
+  </div>
+  <div class="info-text">
+    <p class="title"><i class="orange">Data Visualization</i><br>
+    <p class="description">
+      The UCSB Global Media Technologies and Cultures lab does a lot of work in collecting data from various company reports around they world.
+      What they were looking for was a way to make that information digestable to the general public.
+      I developed various interactive data visualizations in javascript that gave both a clear and intuitive sense of the information conveyed.
+      It was also important that these visualizations were generative, adapting dynamically to whatever data is input, making these pieces reusable.
+    </p>
+    <p class="description">
+      This example demonstrates the land ownership of companies under different categories. 
+      The goal here was to make the data, areas in the millions of square feet, more understandable by comparing it to well known sizes.
+    </p>
+  </div>
+</div>
+<div class="carousel__and__text" style="margin-top: 120px;">
+  <div class="carousel">
+    <button class="carousel__button carousel__button--left">
+      <img src="assets/UI/Chevron-Left.svg" alt="left arrow">
+    </button>
+    <div class="carousel__track-container">
+      <ul class="carousel__track">
+        <li class="carousel__slide current-slide">
+          <img src="assets/Allolib/Allo 1.png" class="carousel__images" alt="_____"
+          max-width="100%" max-height="100%">
+        </li>
+        <li class="carousel__slide">
+          <img src="assets/Allolib/Allo 2.png" class="carousel__images" alt="_____"
+          max-width="100%" max-height="100%">
+        </li>
+        <li class="carousel__slide">
+          <img src="assets/Allolib/Allo 4.png" class="carousel__images" alt="_____"
+          max-width="100%" max-height="100%">
+        </li>
+        <li class="carousel__slide">
+          <img src="assets/Allolib/Allo 3.png" class="carousel__images" alt="_____"
+          max-width="100%" max-height="100%">
+        </li>
+      </ul>
+    </div>
+    <button class="carousel__button carousel__button--right">
+      <img src="assets/UI/Chevron-Right.svg" alt="right arrow">
+    </button>
+    <div class="carousel__nav">
+      <button class="carousel__indicator current-slide"></button>
+      <button class="carousel__indicator"></button>
+      <button class="carousel__indicator"></button>
+      <button class="carousel__indicator"></button>
+    </div>
+  </div>
+  <div class="info-text">
+    <p class="title"><i class="orange">Projects in Allolib </i><br>
+    <p class="description" id="full-credits">
+      UCSB is home to the Allosphere, a 30-foot tall sphere with full 360 projection coverage inside of it.
+      I'm in a graduate level class in the Media Arts and Technology program where I am learning to create visuals for the
+      Allosphere through its c++ framework, allolib. It's an exciting mix of object oriented programming, computer graphics, and physics simulation.
+    </p>
+  </div>
+</div>
+<script src="carousel.js"></script>
 </body>
 </html>
