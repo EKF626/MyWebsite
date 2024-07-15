@@ -1,4 +1,4 @@
-const interval = 6*1000;
+const interval = 9*1000;
 
 const carousels = document.querySelectorAll('.carousel');
 
