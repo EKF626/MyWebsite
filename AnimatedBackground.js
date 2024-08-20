@@ -1,6 +1,6 @@
-const dist = 12;
+const dist = 13;
 
-const colorVal = 10;
+const colorVal = 11;
 const levels = 8;
 
 const FR = 20;
@@ -28,7 +28,7 @@ function draw() {
     background(170, 255, 37)
     for (let x = 0; x < cells.length; x++) {
         for (let y = 0; y < cells[x].length; y++) {
-            fill(23, 255, cells[x][y]*colorVal);
+            fill(170, 255, cells[x][y]*colorVal);
             //fill 23
             // rect(x*sist, y*dist, dist, dist);
             circle(x*dist, y*dist, dist);
