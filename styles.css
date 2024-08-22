@@ -65,10 +65,18 @@ a, a:visited, a:hover {
     margin-bottom: 2vh;
 }
 
-.container {
+/* .container {
     display: flex;
     align-items: flex-start;
     margin-top: 120px;
+} */
+
+@media (min-width: 800px) {
+    .container {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 120px;
+    }
 }
 
 .image-column {
@@ -90,9 +98,16 @@ a, a:visited, a:hover {
     line-height: 1.8;
 }
 
-.carousel__and__text {
+/* .carousel__and__text {
     display: flex;
     justify-content: flex-start;
+} */
+
+@media (min-width: 800px) {
+    .carousel__and__text {
+        display: flex;
+        justify-content: flex-start;
+    }
 }
 
 .carousel {
@@ -100,6 +115,14 @@ a, a:visited, a:hover {
     width: 35%;
     height: 30vw;
     margin-left: 40px;
+}
+
+@media (max-width: 800px) {
+    .carousel {
+        position: center;
+        width: 80%;
+        height: 50vw;
+    }
 }
 
 .carousel__images {
@@ -181,6 +204,14 @@ a, a:visited, a:hover {
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 40px;
+}
+
+@media (max-width: 800px) {
+    .info-text {
+        width: 90%;
+        margin-left: 10px;
+        margin-right: 0px;
+    }
 }
 
 .info-text .title {

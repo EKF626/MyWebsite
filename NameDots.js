@@ -6,6 +6,8 @@ let size
 let holding = false;
 
 const title = "Elijah Frankle";
+const vertTitle = "Elijah\nFrankle"
+const vertMax = 800;
 const margin = 0.8;
 const chaos = 0.3;
 const dampening = 0.9;
@@ -53,11 +55,22 @@ function mouseReleased() {
 function setPoints() {
   range = windowWidth*0.2;
   wind = windowWidth*0.0007;
-  size = windowWidth*0.0025;
+  if (windowWidth > vertMax) {
+    size = windowWidth*0.0025;
+  } else {
+    size = windowHeight*0.0033;
+  }
 
   textCanvas.background(255);
-  textCanvas.textSize(getMaxSize());
-  textCanvas.text(title, windowWidth*0.5, windowHeight*0.4);
+  let maxSize = getMaxSize();
+  textCanvas.textSize(maxSize);
+  // textCanvas.textSize(getMaxSize());
+  textCanvas.textLeading(maxSize*0.9);
+  if (windowWidth > vertMax) {
+    textCanvas.text(title, windowWidth*0.5, windowHeight*0.4);
+  } else {
+    textCanvas.text(vertTitle, windowWidth*0.5, windowHeight*0.4);
+  }
   let numPoints = 0;
   const maxPoints = width*2;
   Points = [];
@@ -77,7 +90,11 @@ function getMaxSize() {
   while(size < windowWidth*margin) {
     fontS++;
     textSize(fontS);
-    size = textWidth(title);
+    if (windowWidth > vertMax) {
+      size = textWidth(title);
+    } else {
+      size = textWidth(vertTitle);
+    }
   }
   return fontS;
 }
