@@ -37,7 +37,7 @@ function draw() {
   }
   
   for (let i = 0; i < Points.length; i++) {
-    Points[i].update(0);
+    Points[i].update();
     Points[i].draw();
   }
 }
@@ -64,7 +64,6 @@ function setPoints() {
   textCanvas.background(255);
   let maxSize = getMaxSize();
   textCanvas.textSize(maxSize);
-  // textCanvas.textSize(getMaxSize());
   textCanvas.textLeading(maxSize*0.9);
   if (windowWidth > vertMax) {
     textCanvas.text(title, windowWidth*0.5, windowHeight*0.4);
