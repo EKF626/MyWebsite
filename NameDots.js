@@ -16,6 +16,7 @@ const initialOffset = 10;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(50);
+  noStroke();
   
   textCanvas = createGraphics(windowWidth, windowHeight);
   textCanvas.textAlign(CENTER, CENTER);
@@ -27,8 +28,6 @@ function setup() {
 
 function draw() {
   background(0, 0, 35);
-  fill(255);
-  noStroke();
 
   if (holding) {
     let index = int(random(Points.length));
