@@ -4,10 +4,11 @@ let range;
 let wind;
 let size
 let holding = false;
+let mobile = false;
+let setNextFrame = false;
 
 const title = "Elijah Frankle";
 const vertTitle = "Elijah\nFrankle"
-const vertMax = 800;
 const margin = 0.8;
 const chaos = 0.3;
 const dampening = 0.9;
@@ -20,19 +21,32 @@ function setup() {
   
   textCanvas = createGraphics(windowWidth, windowHeight);
   textCanvas.textAlign(CENTER, CENTER);
-  textCanvas.fill(0);
+  textCanvas.fill(1);
   textCanvas.textStyle(BOLD);
+
+  if ("ontouchstart" in window) {
+    mobile = true;
+  }
   
   setPoints();
 }
 
 function draw() {
+  if (setNextFrame) {
+    resizeCanvas(windowWidth, windowHeight);
+    setPoints();
+    setNextFrame = false;
+  }
+
   background(0, 0, 35);
 
   if (holding) {
-    let index = int(random(Points.length));
-    Points[index].pos.x = mouseX;
-    Points[index].pos.y = mouseY;
+    for (let i = 0; i < 10; i++) {
+      let index = int(random(Points.length));
+      Points[index].pos.x = mouseX;
+      Points[index].pos.y = mouseY;
+      Points[index].frozen = true;
+    }
   }
   
   for (let i = 0; i < Points.length; i++) {
@@ -42,44 +56,53 @@ function draw() {
 }
 
 function mousePressed() {
-    if (!["A", "BUTTON"].includes(event.target.nodeName)) {
+    if (!["A", "BUTTON"].includes(event.target.nodeName) & !mobile) {
       holding = true;
     }
 }
 
 function mouseReleased() {
   holding = false;
+  for (let i = 0; i < Points.length; i++) {
+    Points[i].frozen = false;
+  }
 }
 
 function setPoints() {
   range = windowWidth*0.2;
   wind = windowWidth*0.0007;
-  if (windowWidth > vertMax) {
+  if (windowWidth > windowHeight) {
     size = windowWidth*0.0025;
   } else {
-    size = windowHeight*0.0033;
+    size = windowWidth*0.0045;
   }
 
   textCanvas.background(255);
   let maxSize = getMaxSize();
   textCanvas.textSize(maxSize);
   textCanvas.textLeading(maxSize*0.9);
-  if (windowWidth > vertMax) {
+  let maxPoints;
+  if (windowWidth > windowHeight) {
     textCanvas.text(title, windowWidth*0.5, windowHeight*0.4);
+    maxPoints = windowWidth * 2;
   } else {
     textCanvas.text(vertTitle, windowWidth*0.5, windowHeight*0.4);
+    maxPoints = windowWidth * 3;
   }
   let numPoints = 0;
-  const maxPoints = width*2;
   Points = [];
-  while (numPoints < maxPoints) {
+  let whileCount = 0;
+  while (numPoints < maxPoints && whileCount < 100000) {
     const x = int(random(windowWidth));
     const y = int(random(windowHeight));
-    if (red(textCanvas.get(x, y)) == 0) {
+    if (red(textCanvas.get(x, y)) == 1) {
       Points.push(new Point(x, y));
       numPoints++;
     }
+    whileCount++;
   }
+  console.log(maxPoints);
+  console.log(numPoints);
 }
 
 function getMaxSize() {
@@ -88,7 +111,7 @@ function getMaxSize() {
   while(size < windowWidth*margin) {
     fontS++;
     textSize(fontS);
-    if (windowWidth > vertMax) {
+    if (windowWidth > windowHeight) {
       size = textWidth(title);
     } else {
       size = textWidth(vertTitle);
@@ -98,8 +121,7 @@ function getMaxSize() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  setPoints();
+  setNextFrame = true;
 }
 
 class Point {
@@ -109,26 +131,29 @@ class Point {
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.color = color(255, 255, 255);
+    this.frozen = false;
   }
   
   update() {
-    this.acc.x = this.anchor.x-this.pos.x + random(-wind, wind);
-    this.acc.y = this.anchor.y-this.pos.y + random(-wind, wind);
-    const d = dist(mouseX, mouseY, this.pos.x, this.pos.y);
-    if (d <= range) {
-      const amt = pow(range-d, 1.1);
-      const xMove = amt*random(-chaos, chaos);
-      const yMove = amt*random(-chaos, chaos);
-      this.acc.x += xMove;
-      this.acc.y += yMove;
-      this.color = lerpColor(color(255, 130, 50), color(255, 255, 255), d/range);
-    } else {
-      this.color = color(255, 255, 255);
+    if (!this.frozen) {
+      this.acc.x = this.anchor.x-this.pos.x + random(-wind, wind);
+      this.acc.y = this.anchor.y-this.pos.y + random(-wind, wind);
+      const d = dist(mouseX, mouseY, this.pos.x, this.pos.y);
+      if (d <= range) {
+        const amt = pow(range-d, 1.1);
+        const xMove = amt*random(-chaos, chaos);
+        const yMove = amt*random(-chaos, chaos);
+        this.acc.x += xMove;
+        this.acc.y += yMove;
+        this.color = lerpColor(color(255, 130, 50), color(255, 255, 255), d/range);
+      } else {
+        this.color = color(255, 255, 255);
+      }
+      this.acc.mult(0.05);
+      this.vel = p5.Vector.add(this.acc, this.vel);
+      this.vel.mult(0.9);
+      this.pos = p5.Vector.add(this.vel, this.pos);
     }
-    this.acc.mult(0.05);
-    this.vel = p5.Vector.add(this.acc, this.vel);
-    this.vel.mult(0.9);
-    this.pos = p5.Vector.add(this.vel, this.pos);
   }
   
   draw() {

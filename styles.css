@@ -71,11 +71,25 @@ a, a:visited, a:hover {
     margin-top: 120px;
 } */
 
-@media (min-width: 800px) {
+@media (orientation: landscape) {
     .container {
         display: flex;
         align-items: flex-start;
         margin-top: 120px;
+    }
+}
+
+@media (orientation: portrait) {
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 70px;
+    }
+    .container.first {
+        order: 2;
+    }
+    .container.second {
+        order: 1;
     }
 }
 
@@ -103,7 +117,7 @@ a, a:visited, a:hover {
     justify-content: flex-start;
 } */
 
-@media (min-width: 800px) {
+@media (orientation: landscape) {
     .carousel__and__text {
         display: flex;
         justify-content: flex-start;
@@ -117,7 +131,7 @@ a, a:visited, a:hover {
     margin-left: 40px;
 }
 
-@media (max-width: 800px) {
+@media (orientation: portrait) {
     .carousel {
         position: center;
         width: 80%;
@@ -206,7 +220,7 @@ a, a:visited, a:hover {
     margin-right: 40px;
 }
 
-@media (max-width: 800px) {
+@media (orientation: portrait) {
     .info-text {
         width: 90%;
         margin-left: 10px;

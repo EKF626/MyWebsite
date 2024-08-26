@@ -1,4 +1,4 @@
-const dist = 13;
+const dist = 14;
 
 const colorVal = 11;
 const levels = 8;
