@@ -1,6 +1,6 @@
 const dist = 14;
 
-const colorVal = 11;
+const colorVal = 12;
 const levels = 8;
 
 const FR = 20;
@@ -29,8 +29,7 @@ function draw() {
     for (let x = 0; x < cells.length; x++) {
         for (let y = 0; y < cells[x].length; y++) {
             fill(170, 255, cells[x][y]*colorVal);
-            //fill 23
-            // rect(x*sist, y*dist, dist, dist);
+            // rect(x*dist+1, y*dist+1, dist-2, dist-2);
             circle(x*dist, y*dist, dist);
             if (cells[x][y] > 0) {
                 found = true;
@@ -41,7 +40,6 @@ function draw() {
     if (resetCount >= FR*resetRate) {
         createRules();
         resetCount = 0;
-        console.log('hi');
     }
     else if (!found) {
         createCells();
