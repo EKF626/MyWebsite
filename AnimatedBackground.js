@@ -1,15 +1,12 @@
-const dist = 14;
-
+const dist = 15;
 const colorVal = 12;
 const levels = 8;
-
 const FR = 20;
 const resetRate = 3;
 
 let cells = [];
 let newCells = [];
 let rules = [];
-let found;
 let resetCount = 0;
 
 function setup() {
@@ -24,13 +21,13 @@ function setup() {
 function draw() {
     cellLogic();
     noStroke();
-    found = false;
+    let found = false;
     background(170, 255, 37)
     for (let x = 0; x < cells.length; x++) {
         for (let y = 0; y < cells[x].length; y++) {
             fill(170, 255, cells[x][y]*colorVal);
             // rect(x*dist+1, y*dist+1, dist-2, dist-2);
-            circle(x*dist, y*dist, dist);
+            circle(x*dist+dist/2, y*dist+dist/2, dist);
             if (cells[x][y] > 0) {
                 found = true;
             }
