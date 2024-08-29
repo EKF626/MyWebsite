@@ -93,7 +93,11 @@ function setPoints() {
   holding = false;
   touching = false;
 
-  range = windowWidth*0.2;
+  if (mobile) {
+    range = windowWidth*0.25;
+  } else {
+    range = windowWidth*0.2;
+  }
   wind = windowWidth*0.0007;
   if (windowWidth > windowHeight) {
     size = windowWidth*0.0025;
