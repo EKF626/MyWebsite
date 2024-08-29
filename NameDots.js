@@ -2,9 +2,10 @@ let textCanvas;
 let Points = [];
 let range;
 let wind;
-let size
+let size;
 let holding = false;
-let mobile = false;
+let touching = false;
+let mobile;
 let setNextFrame = false;
 
 const title = "Elijah Frankle";
@@ -24,9 +25,7 @@ function setup() {
   textCanvas.fill(1);
   textCanvas.textStyle(BOLD);
 
-  if ("ontouchstart" in window) {
-    mobile = true;
-  }
+  checkMobile();
   
   setPoints();
 }
@@ -55,20 +54,45 @@ function draw() {
   }
 }
 
+function checkMobile() {
+  if ("ontouchstart" in window) {
+    mobile = true;
+  } else {
+    mobile = false;
+  }
+}
+
 function mousePressed() {
-    if (!["A", "BUTTON"].includes(event.target.nodeName) & !mobile) {
+    if (!mobile & !["A", "BUTTON"].includes(event.target.nodeName)) {
       holding = true;
     }
 }
 
 function mouseReleased() {
-  holding = false;
-  for (let i = 0; i < Points.length; i++) {
-    Points[i].frozen = false;
+  if (!mobile) {
+    holding = false;
+    for (let i = 0; i < Points.length; i++) {
+      Points[i].frozen = false;
+    }
+  }
+}
+
+function touchStarted() {
+  if (mobile) {
+    touching = true;
+  }
+}
+
+function touchEnded() {
+  if (mobile) {
+    touching = false;
   }
 }
 
 function setPoints() {
+  holding = false;
+  touching = false;
+
   range = windowWidth*0.2;
   wind = windowWidth*0.0007;
   if (windowWidth > windowHeight) {
@@ -101,8 +125,6 @@ function setPoints() {
     }
     whileCount++;
   }
-  console.log(maxPoints);
-  console.log(numPoints);
 }
 
 function getMaxSize() {
@@ -139,7 +161,7 @@ class Point {
       this.acc.x = this.anchor.x-this.pos.x + random(-wind, wind);
       this.acc.y = this.anchor.y-this.pos.y + random(-wind, wind);
       const d = dist(mouseX, mouseY, this.pos.x, this.pos.y);
-      if (d <= range) {
+      if ((!mobile | touching) & (d <= range)) {
         const amt = pow(range-d, 1.1);
         const xMove = amt*random(-chaos, chaos);
         const yMove = amt*random(-chaos, chaos);
