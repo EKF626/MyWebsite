@@ -12,7 +12,8 @@ const title = "Elijah Frankle";
 const vertTitle = "Elijah\nFrankle"
 const margin = 0.8;
 const chaos = 0.3;
-const dampening = 0.9;
+const dampening = 0.05;
+const drag = 0.9;
 const initialOffset = 10;
 
 function setup() {
@@ -40,11 +41,9 @@ function draw() {
   background(0, 0, 35);
 
   if (holding) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 4; i++) {
       let index = int(random(Points.length));
-      Points[index].pos.x = mouseX;
-      Points[index].pos.y = mouseY;
-      Points[index].frozen = true;
+      Points[index].toMouse = true;
     }
   }
   
@@ -72,7 +71,7 @@ function mouseReleased() {
   if (!mobile) {
     holding = false;
     for (let i = 0; i < Points.length; i++) {
-      Points[i].frozen = false;
+      Points[i].toMouse = false;
     }
   }
 }
@@ -157,29 +156,36 @@ class Point {
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.color = color(255, 255, 255);
-    this.frozen = false;
+    this.toMouse = false;
   }
   
   update() {
-    if (!this.frozen) {
+    if (this.toMouse) {
+      this.acc.x = mouseX-this.pos.x + random(-wind, wind);
+      this.acc.y = mouseY-this.pos.y + random(-wind, wind);
+    } else {
       this.acc.x = this.anchor.x-this.pos.x + random(-wind, wind);
       this.acc.y = this.anchor.y-this.pos.y + random(-wind, wind);
-      const d = dist(mouseX, mouseY, this.pos.x, this.pos.y);
-      if ((!mobile | touching) & (d <= range)) {
-        const amt = pow(range-d, 1.1);
-        const xMove = amt*random(-chaos, chaos);
-        const yMove = amt*random(-chaos, chaos);
-        this.acc.x += xMove;
-        this.acc.y += yMove;
-        this.color = lerpColor(color(255, 130, 50), color(255, 255, 255), d/range);
-      } else {
-        this.color = color(255, 255, 255);
-      }
-      this.acc.mult(0.05);
-      this.vel = p5.Vector.add(this.acc, this.vel);
-      this.vel.mult(0.9);
-      this.pos = p5.Vector.add(this.vel, this.pos);
     }
+    const d = dist(mouseX, mouseY, this.pos.x, this.pos.y);
+    if ((!mobile | touching) & (d <= range)) {
+      const amt = pow(range-d, 1.1);
+      const xMove = amt*random(-chaos, chaos);
+      const yMove = amt*random(-chaos, chaos);
+      this.acc.x += xMove;
+      this.acc.y += yMove;
+      this.color = lerpColor(color(255, 130, 50), color(255, 255, 255), d/range);
+    } else {
+      this.color = color(255, 255, 255);
+    }
+    if (this.toMouse) {
+      this.acc.mult(0.3*dampening);
+    } else {
+      this.acc.mult(dampening);
+    }
+    this.vel = p5.Vector.add(this.acc, this.vel);
+    this.vel.mult(drag);
+    this.pos = p5.Vector.add(this.vel, this.pos);
   }
   
   draw() {

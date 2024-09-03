@@ -22,7 +22,7 @@ function draw() {
     cellLogic();
     noStroke();
     let found = false;
-    background(170, 255, 37)
+    background(170, 255, 37);
     for (let x = 0; x < cells.length; x++) {
         for (let y = 0; y < cells[x].length; y++) {
             fill(170, 255, cells[x][y]*colorVal);
