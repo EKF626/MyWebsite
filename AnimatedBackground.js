@@ -52,10 +52,10 @@ function windowResized() {
     createCells();
 }
 
-function mouseClicked() {
-    createCells();
-    createRules();
-}
+// function mouseClicked() {
+//     createCells();
+//     createRules();
+// }
 
 function createCells() {
     let numX = 0;
