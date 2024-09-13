@@ -27,7 +27,8 @@ function draw() {
         for (let y = 0; y < cells[x].length; y++) {
             fill(170, 255, cells[x][y]*colorVal);
             if (mouseIsPressed) {
-                fill(17, 255, cells[x][y]*colorVal);
+                // fill(17, 255, cells[x][y]*colorVal);
+                fill(170, 255, cells[x][y]*colorVal*2);
             }
             // rect(x*dist+1, y*dist+1, dist-2, dist-2);
             circle(x*dist+dist/2, y*dist+dist/2, dist);
