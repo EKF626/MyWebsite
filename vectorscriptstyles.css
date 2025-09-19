@@ -1,0 +1,208 @@
+body {
+  margin: 0;
+  font-family: "Gill Sans", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(250, 249, 242);
+}
+
+header {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+header .back-link {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+header .main-title {
+  font-size: 56px;
+  line-height: 6px;
+  font-weight: normal;
+}
+
+header .sub-title {
+  font-size: 20px;
+  line-height: 2px;
+  font-weight: normal;
+}
+
+.layout {
+  flex: 1;
+  display: flex;
+}
+
+.sidebar {
+  width: 300px;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+  font-size: 18pt;
+}
+
+.sidebar p {
+  font-weight: bold;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar button:hover,
+.sidebar button:focus {
+  text-decoration: underline;
+}
+
+.sidebar button.is-active {
+  /* text-decoration: underline;
+  font-style: italic;
+  text-decoration-thickness: 3px; */
+  border: solid;
+  border-radius: 5px;
+}
+
+.content {
+  flex: 1;
+  padding: 10px;
+  min-width: 0;
+}
+
+.content h2 {
+  font-size: 30pt;
+}
+
+.content p {
+  font-size: 24pt;
+}
+
+.back-link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.back-link:visited {
+  color: inherit;
+}
+
+.instructions {
+  font-size: 30px;
+}
+
+.instructions li {
+  margin-top: 16px;
+}
+
+.sub-list {
+  border: solid;
+}
+
+.media-row {
+  display: flex;
+  align-items: stretch;          /* make all children match the row height */
+  justify-content: flex-start;   /* left-align */
+  gap: 18px;         /* constant spacing */
+  height: clamp(180px, 36vw, 360px); /* scales down on small screens, caps at 360px */
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;              /* scroll horizontally if there are many */
+  overflow-y: hidden;
+}
+
+.media-row figure {
+  margin: 0;
+}
+
+.media {
+  flex: 0 0 auto;   /* don't stretch to fill; width is intrinsic to content */
+  height: 100%;     /* match the row's height */
+  min-width: 0;
+  margin: 0;
+}
+
+/* Images: match height; width adjusts by aspect ratio */
+.media img {
+  display: block;
+  height: 100%;
+  width: auto;
+  box-sizing: border-box;
+  border: 2px solid;
+}
+
+.video-embed {
+  height: 100%;
+  aspect-ratio: 16 / 9;  /* width = height * (16/9) */
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 2px solid;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* fills box, may crop */
+}
+
+.title-row {
+  display: flex;
+  align-items: baseline;   /* align text nicely */
+  gap: 50px;               /* <-- set the distance here */
+  white-space: nowrap;     /* keep on one line */
+  margin: 6px 0px;
+}
+
+.title-row h2,
+.title-row .subtitle {
+  margin: 12px;
+}
+
+.title-row h2 {
+  font-size: 50px;
+}
+
+.subtitle {
+  font-size: 30px;
+  font-style: italic;
+}
+
+.title-row .subtitle {
+  flex: 0 0 auto;          /* don’t grow; stay content width */
+  overflow: hidden;        /* optional: ellipsis if too long */
+  text-overflow: ellipsis;
+}
+
+.subtitle,
+.subtitle:visited {
+  color: inherit;           /* same color as surrounding text */
+  text-decoration: none;    /* no underline */
+}
+
+ul {
+  font-size: 24px;
+  line-height: 36px; 
+}
+
+.disclaimer {
+  font-style: italic;
+}

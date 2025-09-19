@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Layout</title>
+  <link rel="stylesheet" href="vectorscriptstyles.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-link">← Elijah Frankle Portfolio</a>
+    <h1 class="main-title">EF Vectorworks Tools</h1>
+    <p class="sub-title">Developed by Elijah Frankle</p>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <p>Avalible tools:</p>
+      <ul>
+        <li><button data-template="channel-marker">Channel Marker (Beta)</button></li>
+        <li><button data-template="color-codes">Color Codes (Beta)</button></li>
+      </ul>
+      <p>Upcoming tools:</p>
+      <ul>
+        <li><button data-template="fixture-info">Fixture Info</button></li>
+        <li><button data-template="select-by-something">Select By Something</button></li>
+        <li><button data-template="custom-selection">Custom Selection</button></li>
+        <li><button data-template="fill-fields">Fill Fields</button></li>
+      </ul>
+      <button data-template="how-to-install">How To Install a New Tool</button><br>
+      <button data-template="about" style="margin: 10px 0 ">About</button>
+    </aside>
+
+    <main class="content" id="main-content">
+    </main>
+    <template id="channel-marker">
+      <div class="title-row">
+        <h2>Channel Marker</h2>
+        <a href="assets/Vectorscript Tools/Channel Marker Beta1.vso" download="Channel Marker Beta1.vso" class="subtitle">Click to download (v.Beta1)</a>
+      </div>
+      <p style="font-size: 20px; margin: 0 5 0 0;">This tool is in Beta testing and may have bugs or unexpected behavior. To report bugs or provide feedback, please reach out at ElijahFrankle626@gmail.com.</p>
+      <div class="media-row">
+        <div class="media">
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/CYPiHwLsS_o?si=nq8HesqjG5d3_ha3"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <figure class="media">
+          <img src="assets/Vectorscript/ChannelMarkerExample3Cropped.png">
+        </figure>
+        <figure class="media">
+          <img src="assets/Vectorscript/ChannelMarkerExample1.png">
+        </figure>
+      </div>
+      <p>Channel Marker speeds up making your magic sheet by creating a custom object generated from fixture and focus point data. Not only is it faster than drawing by hand, but can pull the most recent data to make sure information is up to date.</p>
+      <p><u>To get started</u>, make sure all lighting fixtures have a channel number, a purpose, and a focus which corresponds to a focus points object. Select the tool from the tool set, click on your document, then click again to the right to set the orientation.  A menu will appearing allowing you to select which focus areas and purposes you would like to include on the magic sheet.</p>
+      <p>Once the object has been created, it has a number of options accessible when selected in the object info palette:</p>
+      <ul>
+        <li><u>Update Data</u>: pull all fixture info again to apply any changes made after creating the object.</li>
+        <li><u>Open Editor</u>: reopen the editor to modify purpose and area selections.</li>
+        <li><u>Offset Distance</u>: how far channels are drawn from their focus point.</li>
+        <li><u>Channel Text Size</u>: how large the channel number is drawn.</li>
+        <li><u>Focus Text Size</u>: how large the focus name is drawn.</li>
+        <li><u>Show Focus Name</u>: toggle showing the focus names.</li>
+        <li><u>Color Channels</u>: toggle drawing each purpose in a different color.</li>
+        <li><u>Fill Text</u>: toggle a white background behind all text to help with readability.</li>
+        <li><u>Lock Location to Origin</u>: toggle if the object is drawn over the actual focus point locations or can be moved freely.</li>
+      </ul>
+    </template>
+    <template id="fixture-info">
+      <h2>Fixture Info</h2>
+      <p>[Coming soon]</p>
+      <!-- <div class="title-row">
+        <h2>Fixture Info</h2>
+        <a href="___" download="___" class="subtitle">Click to download (v.Beta1)</a>
+      </div>
+      <p style="font-size: 20px; margin: 0 5 0 0;">This tool is in Beta testing and may have bugs or unexpected behavior. To report bugs or provide feedback, please reach out at ElijahFrankle626@gmail.com.</p>
+      <div class="media-row">
+        <div class="media">
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/123456"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <figure class="media">
+          <img src="assets/Vectorscript/FixtureInfoExample1.png">
+        </figure>
+        <figure class="media">
+          <img src="assets/Vectorscript/FixtureInfoExample2.png">
+        </figure>
+      </div>
+      <p>Fixture Info gives a streamline and customizable alternative to the object info palette to help with easily editing fixtures.</p>
+      <p><u>To get started</u>, select the tool from the tool set and double click on its icon. Here you can toggle what parameters and information is shown in the menu.</p>
+      <p>Once you are ready to edit, with the tool selected, click on a lighting fixture. If you would like to edit multiple fixtures, you can hold shift to add to your selection. In this menu you can edit your fixture as you normally would. Click "Apply" to save your changes or "Cancel" to discard them.</p> -->
+    </template>
+    <template id="color-codes">
+      <div class="title-row">
+        <h2>Color Codes</h2>
+        <a href="assets/Vectorscript Tools/Color Codes Beta1.vsm" download="Color Codes Beta1.vsm" class="subtitle">Click to download (v.Beta1)</a>
+      </div>
+      <p style="font-size: 20px; margin: 0 5 0 0;">This tool is in Beta testing and may have bugs or unexpected behavior. To report bugs or provide feedback, please reach out at ElijahFrankle626@gmail.com.</p>
+      <div class="media-row">
+        <div class="media">
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/I3nZrs7Grz8?si=W6kIKtCAheGxDI-3"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <figure class="media">
+          <img src="assets/Vectorscript/ColorCodesExample1.png">
+        </figure>
+        <figure class="media">
+          <img src="assets/Vectorscript/ColorCodesExample2.png">
+        </figure>
+      </div>
+      <p>Color Codes gives a quick way for you to color code your lighting fixtures, allowing you to easily assign colors for specific groups based on your choice of parameter.</p>
+      <p><u>To get started</u>, allow your document to set fixture color by going to "File">"Document Settings">"Spotlight Preferences...", selecting "Classes and Color" from the left column, and toggling on "Modify lighting device color". Also, under "Lighting Device Color Set by:" select "Object attributes".</p>
+      <p>Now, by right-clicking anywhere on your document, choose the Color Codes command. If you placed the tool in a different menu when installing, select it from there.
+      In the editor menu, you can choose what parameter you are grouping by, how the categories are sorted, and assign a color to each of them. Click the "Reset" button to reset a color back to white, or the "Reset All" button to return all to white. To save your changes click "Apply", or to discard them click "Cancel".</p>
+    </template>
+    <template id="select-by-something">
+      <h2>Select By Something</h2>
+      <p>[Coming soon]</p>
+    </template>
+    <template id="custom-selection">
+      <h2>Custom Selection</h2>
+      <p>[Coming soon]</p>
+    </template>
+    <template id="fill-fields">
+      <h2>Fill Fields</h2>
+      <p>[Coming soon]</p>
+    </template>
+    <template id="how-to-install">
+      <h2>How To Install a New Tool:</h2>
+      <ol class="instructions">
+        <li>Download the file from its info page. Tools will either be a ".vso" or ".vsm" file.</li>
+        <li>In Vectorworks, find your user folder by clicking "Tools">"Options">"Vectorworks Preferences...">"User Folders".</li>
+        <li>Open this folder, and within it open the folder for the version you are using (ex: 2025), then open the "Plug-ins" folder.</li>
+        <li>Drag or copy and paste the downloaded file into this folder. You may choose create a sub-folder of custom plug-ins to keep things organized.</li>
+        <li>Close and re-open your Vectorworks application.</li>
+        <li>In Vectorworks, go to "Tools">"Workspaces">"Workspaces..."</li>
+        <li>Select the workspace you'd like to add the tool to and click "Edit..." You may choose to create a new workspace or edit an exiting one.</li>
+        <p>IF the tool is a "<b>.vso</b>" file...</p>
+        <ol class="sub-list">
+          <li>Select the "Tools" tab at the top.</li>
+          <li>In the left column, find the "EF Tools" container and expand it. You should see your new tool in this expanded list.</li>
+          <li>In the right column, expand the "Tool Sets" container, then expand the tool set you'd like to place the new tool in. </li>
+          <li>Drag the tool from the left column into the right column inside your chosen tool set.</li>
+          <li>Click "Ok", then wait about five seconds for the changes to update.</li>
+          <li>Your new tool should now appear in that tool set and be selectable just like any other tool.</li>
+        </ol>
+        <p>IF the tool is a "<b>.vsm</b>" file...</p>
+        <ol class="sub-list">
+          <li>Select the "Menu" tab at the top.</li>
+          <li>In the left column, find the "EF Tools" container and expand it. You should see your new tool in this expanded list.</li>
+          <li>In the right column, expand the "Document Context" container. (This makes the tool useable by right clicking and selecting it. You may choose to place the tool in a different container corresponding to the menus at the top of the screen.)</li>
+          <li>Drag the tool from the left column into the right column inside the open container.</li>
+          <li>Click "Ok", then wait about five seconds for the changes to update.</li>
+          <li>Your new tool should appear in a list when you right click your document, or in an  upper menu if you chose a different container.</li>
+        </ol>
+      </ol>
+    </template>
+    <template id="about">
+      <h2>About</h2>
+      <p>
+        As a designer and a developer, I'm always looking for ways technology can support the design process.
+        What started off as a passion project fusing my backgrounds in lighting/projection design and computer science has grown into a set of tools created to improve the drafting workflow.
+      </p>
+      <p>
+        If you are interested in a tool that doesn't exist yet or have feedback on already released tools, please feel free to reach out at ElijahFrankle626@gmail.com.
+      </p>
+    </template>
+  </div>
+  <script>
+    const mainContent = document.getElementById('main-content');
+    const buttons = document.querySelectorAll('.sidebar button[data-template]');
+    const DEFAULT_TEMPLATE = 'about'; // change if you want a different default
+
+    function setActiveButton(id) {
+      buttons.forEach(b => {
+        b.classList.toggle('is-active', b.dataset.template === id);
+      });
+    }
+
+    function loadTemplateById(id) {
+      const tpl = document.getElementById(id);
+      if (!tpl) return false;
+      mainContent.innerHTML = '';
+      mainContent.appendChild(tpl.content.cloneNode(true));
+      setActiveButton(id);
+      return true;
+    }
+
+    function currentIdFromUrl() {
+      const fromHash = location.hash ? location.hash.slice(1) : '';
+      return fromHash || DEFAULT_TEMPLATE;
+    }
+
+    // On initial load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!loadTemplateById(currentIdFromUrl())) {
+        loadTemplateById(DEFAULT_TEMPLATE);
+        history.replaceState(null, '', `#${DEFAULT_TEMPLATE}`);
+      }
+    });
+
+    // Handle back/forward navigation
+    window.addEventListener('hashchange', () => {
+      const id = currentIdFromUrl();
+      if (!loadTemplateById(id)) {
+        loadTemplateById(DEFAULT_TEMPLATE);
+        history.replaceState(null, '', `#${DEFAULT_TEMPLATE}`);
+      }
+    });
+
+    // Clicking a sidebar button updates the hash (which triggers loading)
+    document.querySelector('.sidebar').addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-template]');
+      if (!btn) return;
+      const id = btn.dataset.template;
+      // If already on this section, still ensure UI is synced
+      if (location.hash.slice(1) === id) {
+        loadTemplateById(id);
+      } else {
+        location.hash = id; // triggers 'hashchange' → loadTemplateById
+      }
+    });
+  </script>
+</body>
+</html>
