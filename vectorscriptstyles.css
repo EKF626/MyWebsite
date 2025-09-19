@@ -166,15 +166,16 @@ header .sub-title {
 
 .title-row {
   display: flex;
-  align-items: baseline;   /* align text nicely */
-  gap: 50px;               /* <-- set the distance here */
+  align-items: baseline;   /* aftign text nicely */
+  gap: 80px;               /* <-- set the distance here */
   white-space: nowrap;     /* keep on one line */
   margin: 6px 0px;
+  white-space: normal;
 }
 
 .title-row h2,
 .title-row .subtitle {
-  margin: 12px;
+  margin: 0;
 }
 
 .title-row h2 {
@@ -187,7 +188,10 @@ header .sub-title {
 }
 
 .title-row .subtitle {
-  flex: 0 0 auto;          /* don’t grow; stay content width */
+  flex: 1 0 auto;          /* don’t grow; stay content width */
+  min-width: 0;
+  white-space: normal;
+  text-overflow: clip;
   overflow: hidden;        /* optional: ellipsis if too long */
   text-overflow: ellipsis;
 }
