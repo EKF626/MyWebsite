@@ -3,7 +3,7 @@ const maxPoints = 8000;
 const resetRatio = 0.1;
 const growSpeed = 0.15;
 const speedVariance = 0.5;
-const fontSize = 125;
+const fontSize = 100;
 const lineWidth = 1;
 const justOnce = false;
 
