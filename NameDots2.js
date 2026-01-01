@@ -1,10 +1,10 @@
 const title = 'Elijah Frankle Portfolio';
-const maxPoints = 8000;
+const maxPoints = 6000;
 const resetRatio = 0.1;
 const growSpeed = 0.15;
 const speedVariance = 0.5;
-const fontSize = 100;
-const lineWidth = 1;
+const fontSize = 90;
+const lineWidth = 0.7;
 const justOnce = false;
 
 let container;
