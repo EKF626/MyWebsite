@@ -1,7 +1,7 @@
 const dist = 15;
 const colorVal = 12;
 const levels = 8;
-const FR = 20;
+const FR = 5;
 const resetRate = 3;
 
 let cells = [];
