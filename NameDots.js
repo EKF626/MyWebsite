@@ -7,6 +7,7 @@ let holding = false;
 let touching = false;
 let mobile;
 let setNextFrame = false;
+let mouseHue;
 
 const title = "Elijah Frankle";
 const vertTitle = "Elijah\nFrankle"
@@ -26,6 +27,8 @@ function setup() {
   textCanvas.fill(1);
   textCanvas.textStyle(BOLD);
 
+  colorMode(HSB, 255);
+
   checkMobile();
   
   setPoints();
@@ -38,7 +41,7 @@ function draw() {
     setNextFrame = false;
   }
 
-  background(0, 0, 35);
+  background(0, 0, 0);
 
   if (holding) {
     for (let i = 0; i < 4; i++) {
@@ -49,6 +52,7 @@ function draw() {
   
   for (let i = 0; i < Points.length; i++) {
     Points[i].update();
+    mouseHue = ((mouseX/width)*1.1-0.07)*200;
     Points[i].draw();
   }
 }
@@ -155,8 +159,9 @@ class Point {
     this.pos = createVector(x+random(-initialOffset, initialOffset), y+random(-initialOffset, initialOffset));
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
-    this.color = color(255, 255, 255);
+    this.color = color(0, 0, 255);
     this.toMouse = false;
+    this.pointHue = ((this.pos.x/width)*1.1-0.05)*200;
   }
   
   update() {
@@ -174,9 +179,11 @@ class Point {
       const yMove = amt*random(-chaos, chaos);
       this.acc.x += xMove;
       this.acc.y += yMove;
-      this.color = lerpColor(color(255, 130, 50), color(255, 255, 255), d/range);
+      // this.color = lerpColor(color(mouseHue, 160, 255), color(mouseHue, 0, 255), d/range);
+      this.color = color(mouseHue, lerp(170, 0, d/range), 255);
+      // this.color = color(this.pointHue, lerp(160, 0, d/range), 255);
     } else {
-      this.color = color(255, 255, 255);
+      this.color = color(0, 0, 255);
     }
     if (this.toMouse) {
       this.acc.mult(0.3*dampening);
